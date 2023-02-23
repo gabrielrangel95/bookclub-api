@@ -40,6 +40,15 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
       },
+      {
+        id: 5,
+        name: "Robert T. Kiyosaki",
+        avatar_url:
+          "https://m.media-amazon.com/images/I/31r-oQ3Y8YL._UY200_.jpg",
+        bio: "Nasceu em Hilo, Hawaii, de ascendência Nipo-Americana, filho de Ralph H. Kiyosaki (1919-1991). Trabalhou na Standard Oil Company depois de ter se formado na Marinha Mercante, para poder viajar o mundo e conhecer os mercados emergentes. Foi para guerra do Vietnã pelos Fuzileiros Navais até 1974 para estudar liderança de tropas. Trabalhou na empresa Xerox até 1977 para aprender sobre vendas.",
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
     ]);
   },
 

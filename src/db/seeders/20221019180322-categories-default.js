@@ -6,7 +6,7 @@ module.exports = {
     return queryInterface.bulkInsert("Categories", [
       {
         id: 1,
-        name: "Negócios",
+        name: "Negócios e Finanças",
         highlighted: false,
         createdAt: new Date(),
         updatedAt: new Date(),
