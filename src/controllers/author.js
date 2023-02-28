@@ -9,6 +9,7 @@ class AuthorController {
           .required("Nome é obrigatório.")
           .min(3, "Nome deve conter mais de 3 caracteres"),
         avatar_url: Yup.string().url("Avatar url deve ser no formato de URL."),
+        bio: Yup.string().required("Bio é obrigatória."),
       });
 
       await schema.validate(req.body);
