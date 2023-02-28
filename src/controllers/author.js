@@ -7,8 +7,8 @@ class AuthorController {
       const schema = Yup.object().shape({
         name: Yup.string()
           .required("Nome é obrigatório.")
-          .min(3, "Nome deve conter mais de 3 caracteres"),
-        avatar_url: Yup.string().url("Avatar url deve ser no formato de URL."),
+          .min(3, "Nome deve conter mais de 3 caracteres."),
+        avatar_url: Yup.string().required("Avatar url é obrigatório."),
         bio: Yup.string().required("Bio é obrigatória."),
       });
 
