@@ -71,16 +71,20 @@ class BookController {
 
       const { category_id, author_id } = req.body;
 
-      const category = await Category.findByPk(category_id);
+      if (category_id) {
+        const category = await Category.findByPk(category_id);
 
-      if (!category) {
-        return res.status(404).json({ error: "Categoria não encontrada" });
+        if (!category) {
+          return res.status(404).json({ error: "Categoria não encontrada" });
+        }
       }
 
-      const author = await Author.findByPk(author_id);
+      if (author_id) {
+        const author = await Author.findByPk(author_id);
 
-      if (!author) {
-        return res.status(404).json({ error: "Autor não encontrado" });
+        if (!author) {
+          return res.status(404).json({ error: "Autor não encontrado" });
+        }
       }
 
       await book.update({
