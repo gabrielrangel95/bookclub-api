@@ -28,6 +28,7 @@ routes.get("/author", AuthorController.getAll);
 routes.get("/author/:id", AuthorController.get);
 
 routes.post("/book", BookController.create);
+routes.put("/book/:id", BookController.update);
 routes.get("/book", BookController.findAll);
 
 routes.post("/userbook", UserBookController.create);
