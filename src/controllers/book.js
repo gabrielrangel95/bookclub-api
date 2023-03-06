@@ -132,6 +132,34 @@ class BookController {
       return res.status(400).json({ error: error?.message });
     }
   }
+
+  async findOne(req, res) {
+    const { id } = req.params;
+    try {
+      if (!id) {
+        return res.status(400).json({ error: "Id é obrigatório" });
+      }
+
+      const book = await Book.findByPk({
+        where,
+        include: [
+          {
+            model: Author,
+            as: "author",
+            attributes: ["name"],
+          },
+          {
+            model: Category,
+            as: "category",
+            attributes: ["name"],
+          },
+        ],
+      });
+      return res.json(book);
+    } catch (error) {
+      return res.status(400).json({ error: error?.message });
+    }
+  }
 }
 
 export default new BookController();

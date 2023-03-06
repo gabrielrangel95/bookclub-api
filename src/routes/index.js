@@ -30,6 +30,7 @@ routes.get("/author/:id", AuthorController.get);
 routes.post("/book", BookController.create);
 routes.put("/book/:id", BookController.update);
 routes.get("/book", BookController.findAll);
+routes.get("/book/:id", BookController.findOne);
 
 routes.post("/userbook", UserBookController.create);
 routes.get("/userbook", UserBookController.getAll);
