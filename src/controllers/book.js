@@ -158,7 +158,7 @@ class BookController {
       const isFavorite = await UserBook.findOne({
         where: {
           user_id: req.userId,
-          book_id: req.body.book_id,
+          book_id: id,
         },
       });
 
