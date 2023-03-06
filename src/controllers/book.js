@@ -145,12 +145,12 @@ class BookController {
           {
             model: Author,
             as: "author",
-            attributes: ["name"],
+            attributes: ["name", "id"],
           },
           {
             model: Category,
             as: "category",
-            attributes: ["name"],
+            attributes: ["name", "id"],
           },
         ],
       });
