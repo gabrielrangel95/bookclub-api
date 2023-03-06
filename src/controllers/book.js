@@ -162,9 +162,10 @@ class BookController {
         },
       });
 
-      book.favorite = isFavorite;
+      const response = new Object(book);
+      response.favorite = isFavorite;
 
-      return res.json(book);
+      return res.json(response);
     } catch (error) {
       return res.status(400).json({ error: error?.message });
     }
