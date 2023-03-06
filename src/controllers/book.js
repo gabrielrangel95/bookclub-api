@@ -154,7 +154,7 @@ class BookController {
           },
           {
             model: UserBook,
-            as: "UserBook",
+            as: "book",
             where: {
               user_id: req.userId,
             },
