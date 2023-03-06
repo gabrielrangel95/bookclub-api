@@ -1,4 +1,4 @@
-import { Book, Category, Author } from "../models";
+import { Book, Category, Author, UserBook } from "../models";
 import * as Yup from "yup";
 
 class BookController {
@@ -118,12 +118,12 @@ class BookController {
           {
             model: Author,
             as: "author",
-            attributes: ["name"],
+            attributes: ["name", "id"],
           },
           {
             model: Category,
             as: "category",
-            attributes: ["name"],
+            attributes: ["name", "id"],
           },
         ],
       });
@@ -154,7 +154,18 @@ class BookController {
           },
         ],
       });
-      return res.json(book);
+
+      const isFavorite = await UserBook.findOne({
+        where: {
+          user_id: req.userId,
+          book_id: req.body.book_id,
+        },
+      });
+
+      return res.json({
+        ...book,
+        favorite: isFavorite,
+      });
     } catch (error) {
       return res.status(400).json({ error: error?.message });
     }
