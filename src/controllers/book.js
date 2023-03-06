@@ -140,8 +140,7 @@ class BookController {
         return res.status(400).json({ error: "Id é obrigatório" });
       }
 
-      const book = await Book.findByPk({
-        where,
+      const book = await Book.findByPk(id, {
         include: [
           {
             model: Author,
