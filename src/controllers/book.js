@@ -155,16 +155,9 @@ class BookController {
         ],
       });
 
-      const isFavorite = await UserBook.findOne({
-        where: {
-          user_id: req.userId,
-          book_id: id,
-        },
-      });
-
       return res.json({
-        ...book,
-        favorite: isFavorite ? true : false,
+        book,
+        favorite: isFavorite,
       });
     } catch (error) {
       return res.status(400).json({ error: error?.message });
