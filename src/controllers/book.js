@@ -152,24 +152,17 @@ class BookController {
             as: "category",
             attributes: ["name"],
           },
+          {
+            model: UserBook,
+            as: "UserBook",
+            where: {
+              user_id: req.userId,
+            },
+          },
         ],
       });
 
-      const isFavorite = await UserBook.findOne({
-        where: {
-          user_id: req.userId,
-          book_id: id,
-        },
-      });
-
-      const response = Object.assign(
-        {
-          favorite: isFavorite,
-        },
-        book
-      );
-
-      return res.json(response);
+      return res.json(book);
     } catch (error) {
       return res.status(400).json({ error: error?.message });
     }
